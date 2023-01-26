@@ -18,6 +18,8 @@ Resources:
       CodeUri: hello_world/
       Handler: app.lambda_handler
       Runtime: python3.9
+      Role: arn:aws:iam::821015962564:role/lambarole
+
       Architectures:
         - x86_64
       Events:
@@ -35,8 +37,8 @@ Resources:
         DestinationConfig:
           OnSuccess:
             Type: SNS
-            Destination: arn:aws:sns:us-east-1:666680140343:B2202-Topic
-#          OnFailure:
+            Destination: arn:aws:sns:us-east-1:821015962564:sns
+        #          OnFailure:
 #            Type: Lambda
 #            Destination: !GetAtt DestinationLambda.Arn
         MaximumEventAgeInSeconds: 60
@@ -47,6 +49,7 @@ Resources:
       CodeUri: hello_world/
       Handler: hey-app.lambda_handler
       Runtime: python3.9
+      Role: arn:aws:iam::821015962564:role/lambarole
       Architectures:
         - x86_64
       Events:
@@ -59,7 +62,7 @@ Resources:
         DestinationConfig:
           OnSuccess:
             Type: SNS
-            Destination: arn:aws:sns:us-east-1:666680140343:B2202-Topic
+            Destination: arn:aws:sns:us-east-1:821015962564:sns
         #          OnFailure:
         #            Type: Lambda
         #            Destination: !GetAtt DestinationLambda.Arn
